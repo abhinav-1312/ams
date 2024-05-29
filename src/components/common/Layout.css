@@ -1,0 +1,14 @@
+.highlighted {
+  background-color: rgb(213, 213, 213);
+}
+
+
+
+@media screen and (max-width: 480px) {
+.main{
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 5rem !important;
+  padding-top:5rem !important ;
+}
+}

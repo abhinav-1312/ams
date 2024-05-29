@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.custom-data-grid .MuiDataGrid-cell[data-field="actions"] {
+  position: sticky !important;
+  right: 0;
+  background-color: #ffffff;
+  z-index: 1000;
+}
+
+.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {
+  height: 40px !important;
+}
+.css-1o6z5ng{
+height: 40px !important;
+}

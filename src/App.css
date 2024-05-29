@@ -1,0 +1,47 @@
+.app {
+
+   /* height: min-content !important;
+   width: 100%; */
+  background-color: #f2f2f2;
+  /*  overflow: scroll; */
+}
+
+
+.navbar {
+  background-color: #2196f3;
+}
+
+.navbar-title {
+  flex-grow: 1;
+}
+
+
+
+.dsa-form-component {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+
+  margin-bottom: 16px;
+
+ 
+
+
+}
+
+.dsa-form-input {
+  margin-bottom: 16px;
+  width: 300px;
+}
+
+.dsa-form-submit-button {
+  width: 5rem;
+ }
+
+.summary-card {
+  transition: background-color 0.3s;
+}
+
+.summary-card.clicked {
+  background-color: lightgray; 
+}
