@@ -116,9 +116,9 @@ class Invoice extends React.Component {
           <p className='invoice-text-Georgia'>
             Place of Supply: <span className='Invoice-span'>   {TxnID?.toLocationDescription}</span>
           </p>
-          <span className='invoice-text-Georgia'>
+          {/* <span className='invoice-text-Georgia'>
             No Commercial value involved in this transaction. Value for declaration purpose only.
-          </span>
+          </span> */}
 
 
           <div className='invoice-body'>
