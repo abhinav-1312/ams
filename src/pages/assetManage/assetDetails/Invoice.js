@@ -56,7 +56,7 @@ class Invoice extends React.Component {
           <Grid item xs={6} px={'4rem'}>
             <img src={michelin} alt='michelin_logo' />
             <h4 className='invoice_title'>
-              <i>  Name and Address of Supplier</i> <br /> {TxnID?.fromLocationName}
+             Name and Address of Supplier <br /> {TxnID?.fromLocationName}
             </h4>
 
             <p className='left-invoice-address'>
