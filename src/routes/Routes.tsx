@@ -80,8 +80,9 @@ const AppRoutes: React.FC = () => {
       />
       <Route
         path="/asseType"
+
         element={
-          userRole.includes("Asset Type") ? (
+          (userRole.includes("Asset Type") || userRole.includes("Admin")) ? (
             <AssetTypeManagement />
           ) : (
             <PrivatePage />

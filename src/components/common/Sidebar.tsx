@@ -89,7 +89,7 @@ const Sidebar: React.FC = () => {
             </ListItemButton>
           </ListItem>
         )}
-        {userRole.includes("Asset Type") && (
+        {(userRole.includes("Asset Type") || userRole.includes("Admin") ) && (
           <ListItem
             className={selectedItem === "asseType" ? "highlighted" : ""}
             onClick={() => handleMenuItemClick("asseType")}
