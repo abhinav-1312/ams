@@ -72,6 +72,15 @@ class Invoice extends React.Component {
               </Typography>
 
             </p>
+            {
+            (invoiceType === "CHALLAN" || invoiceType === "GATEPASS")&& (
+            <span className='invoice-text-Georgia'>
+              <br /> <br />
+              No Commercial value involved in this transaction. Value for declaration purpose only.
+            </span>
+
+            )
+          }
           </Grid>
           {/* Top Right Side */}
           <Grid item xs={6}>
@@ -110,15 +119,13 @@ class Invoice extends React.Component {
           </Grid>
         </Grid>
 
+          
         {/* Body Content */}
         <div className='invoice-body'>
 
           <p className='invoice-text-Georgia'>
             Place of Supply: <span className='Invoice-span'>   {TxnID?.toLocationDescription}</span>
           </p>
-          {/* <span className='invoice-text-Georgia'>
-            No Commercial value involved in this transaction. Value for declaration purpose only.
-          </span> */}
 
 
           <div className='invoice-body'>
@@ -147,8 +154,8 @@ class Invoice extends React.Component {
                   <th className='invoice-table-th'>Rate</th>
                   <th className='invoice-table-th'>Amount</th>
                   <th className='invoice-table-th'>Taxable Value</th>
-                  <th className='invoice-table-th'>Rate</th>
-                  <th className='invoice-table-th'>Amount</th>
+                  <th className='invoice-table-th'>GST Rate</th>
+                  <th className='invoice-table-th'>GST Amount</th>
                   <th className='invoice-table-th'>Total</th>
                 </tr>
               </thead>
@@ -162,18 +169,18 @@ class Invoice extends React.Component {
                   <td className='invoice-table-td'>{invoiceData.assetTag}</td>
                   <td className='invoice-table-td'>{invoiceData.hsnCode || 'NA'}</td>
                   <td className='invoice-table-td'>{1}</td>
-                  <td className='invoice-table-td'>{invoiceData.assetCost || 0}</td>
-                  <td className='invoice-table-td'>{(invoiceData.assetCost || 0) * 1}</td>
-                  <td className='invoice-table-td'>{(invoiceData.assetCost || 0) * 1}</td>
+                  <td className='invoice-table-td'>{ invoiceData?.assetCost }</td>
+                  <td className='invoice-table-td'>{ invoiceData?.assetCost * 1}</td>
+                  <td className='invoice-table-td'>{ invoiceData?.assetCost * 1}</td>
                   <td className='invoice-table-td'>{(invoiceType === "GATEPASS" || invoiceType === "CHALLAN") ? '0' : '18%'}</td>
-                  <td className='invoice-table-td'>{((invoiceData.assetCost || 0) * 18 / 100).toFixed(2)}</td>
-                  <td className='invoice-table-td'>{(((invoiceData.assetCost || 0) * 1) + ((invoiceData.assetCost || 0) * 18 / 100)).toFixed(2)}</td>
+                  <td className='invoice-table-td'>{(((invoiceType === "CHALLAN" || invoiceType === "GATEPASS"  )? 0 : (invoiceData.assetCost ? invoiceData.assetCost : 0)) * 18 / 100).toFixed(2)}</td>
+                  <td className='invoice-table-td'>{((invoiceData?.assetCost * 1) + (((invoiceType === "CHALLAN" || invoiceType === "GATEPASS") ? 0 : (invoiceData.assetCost ? invoiceData.assetCost : 0)) * 18 / 100)).toFixed(2)}</td>
                 </tr>
 
                 <tr>
                   <td className='invoice-table-td' colSpan="5"></td>
                   <td className='invoice-table-td' colSpan="6">Total Amount before Tax</td>
-                  <td className='invoice-table-td'>{((invoiceData.assetCost || 0) * 1).toFixed(2)}</td>
+                  <td className='invoice-table-td'>{(invoiceData?.assetCost).toFixed(2)}</td>
                 </tr>
                 <tr>
                   <td className='invoice-table-td' colSpan="5"></td>
@@ -183,7 +190,7 @@ class Invoice extends React.Component {
                 <tr>
                   <td className='invoice-table-td' colSpan="5"></td>
                   <td className='invoice-table-td' colSpan="6">Total Amount after Tax</td>
-                  <td className='invoice-table-td'>{(((invoiceData.assetCost || 0) * 1) + ((invoiceData.assetCost || 0) * 18 / 100)).toFixed(2)}</td>
+                  <td className='invoice-table-td'>{(( invoiceData?.assetCost * 1 ) + (((invoiceType === "CHALLAN" || invoiceType === "GATEPASS") ? 0 : (invoiceData.assetCost ? invoiceData.assetCost : 0)) * 18 / 100)).toFixed(2)}</td>
                 </tr>
               </tbody>
             </table>
