@@ -173,14 +173,14 @@ class Invoice extends React.Component {
                   <td className='invoice-table-td'>{ invoiceData?.assetCost * 1}</td>
                   <td className='invoice-table-td'>{ invoiceData?.assetCost * 1}</td>
                   <td className='invoice-table-td'>{(invoiceType === "GATEPASS" || invoiceType === "CHALLAN") ? '0' : '18%'}</td>
-                  <td className='invoice-table-td'>{(((invoiceType === "CHALLAN" || invoiceType === "GATEPASS"  )? 0 : (invoiceData.assetCost ? invoiceData.assetCost : 0)) * 18 / 100).toFixed(2)}</td>
-                  <td className='invoice-table-td'>{((invoiceData?.assetCost * 1) + (((invoiceType === "CHALLAN" || invoiceType === "GATEPASS") ? 0 : (invoiceData.assetCost ? invoiceData.assetCost : 0)) * 18 / 100)).toFixed(2)}</td>
+                  <td className='invoice-table-td'>{((((invoiceType === "CHALLAN" || invoiceType === "GATEPASS"  )? 0 : (invoiceData?.assetCost ? invoiceData.assetCost : 0)) * 18) / 100).toFixed(2)}</td>
+                  <td className='invoice-table-td'>{(((invoiceData?.assetCost * 1) + (((invoiceType === "CHALLAN" || invoiceType === "GATEPASS") ? 0 : (invoiceData.assetCost ? invoiceData.assetCost : 0))) * 18 / 100)).toFixed(2)}</td>
                 </tr>
 
                 <tr>
                   <td className='invoice-table-td' colSpan="5"></td>
                   <td className='invoice-table-td' colSpan="6">Total Amount before Tax</td>
-                  <td className='invoice-table-td'>{(invoiceData?.assetCost).toFixed(2)}</td>
+                  <td className='invoice-table-td'>{(invoiceData?.assetCost ? invoiceData.assetCost : 0).toFixed(2)}</td>
                 </tr>
                 <tr>
                   <td className='invoice-table-td' colSpan="5"></td>
@@ -190,7 +190,7 @@ class Invoice extends React.Component {
                 <tr>
                   <td className='invoice-table-td' colSpan="5"></td>
                   <td className='invoice-table-td' colSpan="6">Total Amount after Tax</td>
-                  <td className='invoice-table-td'>{(( invoiceData?.assetCost * 1 ) + (((invoiceType === "CHALLAN" || invoiceType === "GATEPASS") ? 0 : (invoiceData.assetCost ? invoiceData.assetCost : 0)) * 18 / 100)).toFixed(2)}</td>
+                  <td className='invoice-table-td'>{((( (invoiceData?.assetCost ? invoiceData.assetCost : 0) * 1 ) + (((invoiceType === "CHALLAN" || invoiceType === "GATEPASS") ? 0 : (invoiceData.assetCost ? invoiceData.assetCost : 0)) * 18) / 100)).toFixed(2)}</td>
                 </tr>
               </tbody>
             </table>
